@@ -4,6 +4,8 @@ import redis
 import time
 import random
 r = redis.Redis(host='redis', port=6379, db=0)
+print("Consumer is starting ...")
+
 random.seed()
 
 while(True):
@@ -11,10 +13,10 @@ while(True):
         word = r.lpop('queue')
         print(f"got {word} from queue")
 
-        if (random.random() > 0.9):
+        if (random.random() > 0.95):
             pass
-            # print("*** CRASHED ***")
-            # quit()
+            print("*** CRASHED ***")
+            quit()
         
         time.sleep(10)
     except redis.exceptions.ConnectionError:
