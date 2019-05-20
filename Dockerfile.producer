@@ -1,0 +1,7 @@
+FROM python:alpine
+WORKDIR /usr/src/app
+COPY requirements.txt .
+COPY producer.py .
+RUN pip install --no-cache -r requirements.txt
+ENTRYPOINT ["python", "producer.py"]
+
