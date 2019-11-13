@@ -6,7 +6,7 @@ services:
       - "6379:6379"
 
   producer:
-    image: redis-producer
+    image: rubyan/redis-producer
     build:
       context: .
       dockerfile: Dockerfile.producer
@@ -14,7 +14,7 @@ services:
       - PYTHONUNBUFFERED=1
 
   consumer:
-    image: redis-consumer
+    image: rubyan/redis-consumer
     build:
       context: .
       dockerfile: Dockerfile.consumer
@@ -22,7 +22,7 @@ services:
       - PYTHONUNBUFFERED=1
 
   observer:
-    image: redis-observer
+    image: rubyan/redis-observer
     build:
       context: .
       dockerfile: Dockerfile.observer
