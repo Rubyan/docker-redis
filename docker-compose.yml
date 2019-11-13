@@ -4,8 +4,6 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
-    volumes:
-      - ./data:/data
 
   producer:
     image: redis-producer
@@ -16,7 +14,7 @@ services:
       - PYTHONUNBUFFERED=1
 
   consumer:
-    image: redis-consumer 
+    image: redis-consumer
     build:
       context: .
       dockerfile: Dockerfile.consumer
@@ -30,5 +28,4 @@ services:
       dockerfile: Dockerfile.observer
     environment:
       - PYTHONUNBUFFERED=1
-
 
