@@ -3,7 +3,13 @@
 import redis
 import time
 import random
-r = redis.Redis(host='redis', port=6379, db=0)
+import os
+
+host = os.environ.get('host', 'redis')
+print(f"Using host {host}")
+
+r = redis.Redis(host=host, port=6379, db=0)
+
 print("Consumer is starting ...")
 
 random.seed()

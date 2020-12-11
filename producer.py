@@ -4,8 +4,12 @@
 import redis
 import random
 import time
+import os
 
-r = redis.Redis(host='redis', port=6379, db=0)
+host = os.environ.get('host', 'redis')
+print(f"Using host {host}")
+
+r = redis.Redis(host=host, port=6379, db=0)
 
 words = ['space', 'tesla', 'cat', 'pi', 'minecraft', 'quake', 'mac', 'redis']
 print("Producer starting...")

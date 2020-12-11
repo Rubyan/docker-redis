@@ -3,4 +3,5 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 COPY consumer.py .
 RUN pip install --no-cache -r requirements.txt
+ENV PYTHONUNBUFFERED      1
 CMD ["python", "consumer.py"]

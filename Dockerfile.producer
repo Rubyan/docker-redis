@@ -3,4 +3,5 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 COPY producer.py .
 RUN pip install --no-cache -r requirements.txt
+ENV PYTHONUNBUFFERED        1
 ENTRYPOINT ["python", "producer.py"]

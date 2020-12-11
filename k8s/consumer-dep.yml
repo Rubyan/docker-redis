@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: consumer
+  name: consumer
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: consumer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - image: rubyan/consumer:1.2
+        name: consumer
+        envFrom:
+        - configMapRef:
+            name: producer 
+        resources: {}
+status: {}
